@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    int count;
+    char symbol;
+
+    printf("Сколько символов напечатать? ");
+    scanf("%d", &count);
+    printf("Какой символ печатать? ");
+    scanf(" %c", &symbol);   // пробел перед %c, чтобы пропустить Enter
+
+    // Основной цикл
+    for (int i = 0; i < count; i++) {
+        putchar(symbol);
+    }
+    putchar('\n');
+
+    // *) символ '+' в начале и в конце
+    putchar('+');
+    for (int i = 0; i < count; i++) {
+        putchar(symbol);
+    }
+    putchar('+');
+    putchar('\n');
+
+    // **) полстроки одним символом, вторую половину — другим
+    char symbol2;
+    printf("Введите второй символ для второй половины: ");
+    scanf(" %c", &symbol2);
+    int half = count / 2;
+    for (int i = 0; i < half; i++) putchar(symbol);
+    for (int i = half; i < count; i++) putchar(symbol2);
+    putchar('\n');
+
+    // ***) после каждого символа восклицательный знак
+    for (int i = 0; i < count; i++) {
+        putchar(symbol);
+        putchar('!');
+    }
+    putchar('\n');
+
+    return 0;
+}
