@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    double x_start = 2.0, x_end = 4.1;
+    double h;
+
+    printf("Функция: y = |lg x| - (x - 2)^2\n");
+    printf("Интервал: [%.1f; %.1f]\n", x_start, x_end);
+    printf("Введите шаг табуляции h: ");
+    scanf("%lf", &h);
+
+    printf("\n|   x   |  f(x)  |\n");
+    printf("------------------\n");
+
+    for (double x = x_start; x <= x_end + 1e-9; x += h) {
+        double y = fabs(log10(x)) - (x - 2) * (x - 2);
+        printf("| %5.2f | %6.3f |\n", x, y);
+    }
+
+    return 0;
+}
