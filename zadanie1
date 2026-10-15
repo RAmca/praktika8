@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    int m, n;
+    printf("Введите m и n (m <= n): ");
+    scanf("%d %d", &m, &n);
+
+    int s = 0;
+    int k = 0;
+
+    for (int i = m; i <= n; i++) {
+        s += i;
+        k++;
+        printf("выполнено %d раз\n", k);
+    }
+
+    printf("Результат: %d\n", s);
+    return 0;
+}
